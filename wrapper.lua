@@ -103,7 +103,11 @@ function Wrapper:open(args)
     end
 
     if cmd then
+<<<<<<< HEAD
         self:send_command(args)
+=======
+        self:send_command {cmd = cmd, create = create}
+>>>>>>> 9cfc189ab582dd961a9799cca09d8d27c1644b23
     end
 end
 
