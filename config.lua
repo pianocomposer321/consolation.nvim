@@ -20,7 +20,7 @@ local O = {
         end
     end,
     close = function(self)
-        local winnr = vim.fn.win_id2win(self.winid)
+        local winnr = vim.fn.bufwinnr(self.bufnr)
         vim.cmd(winnr.."wincmd c")
     end,
     kill = function(self) vim.cmd("bd! "..self.bufnr) end,
