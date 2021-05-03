@@ -27,6 +27,7 @@ Setup the `Wrapper` using the provided configuration options
 function() vim.cmd("vnew | term") end
 ```
 </details>
+
 - `open` (function): The function used to open the terminal.
 <details>
 <summary>Default</summary>
@@ -44,6 +45,7 @@ end
 ```
 
 </details>
+
 - `close` (function): The function used to close the terminal.
 <details>
 <summary>Default</summary>
@@ -56,6 +58,7 @@ end
 ```
 
 </details>
+
 - `kill` (function): The function used to kill the terminal.
 <details>
 <summary>Default</summary>
@@ -65,6 +68,7 @@ function (self) vim.cmd("bd! "..self.bufnr) end
 ```
 
 </details>
+
 
 Except for `create`, all of these functions accept one argument, which is a reference to the `Wrapper` object iself. This way all of its variables like `bufnr`, `winid`, etc. are avaliable to the functions.
 
