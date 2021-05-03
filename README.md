@@ -63,6 +63,11 @@ Utility function that returns whether the terminal buffer is currently displayed
 
 ##### Returns: `bool`
 
+### `Wrapper:get_winnr()`
+Utility function that returns the `Wrapper` object's `winnr`. (`:help bufwinnr()`)
+
+##### Returns: `int`
+
 ## Examples
 
 ### Using neovim's builtin `:term` command in a vsplit

@@ -9,9 +9,7 @@ local U = {}
 local O = {
     create = function() vim.cmd("vnew | term") end,
     open = function(self)
-        -- vim.cmd("vnew")
-        -- vim.cmd("b"..self.bufnr)
-        local winnr = vim.fn.bufwinnr(self.bufnr)
+        local winnr = self.get_winnr()
         if winnr == -1 then
             vim.cmd("vnew")
             vim.cmd("b"..self.bufnr)
@@ -20,7 +18,7 @@ local O = {
         end
     end,
     close = function(self)
-        local winnr = vim.fn.bufwinnr(self.bufnr)
+        local winnr = self.get_winnr()
         vim.cmd(winnr.."wincmd c")
     end,
     kill = function(self) vim.cmd("bd! "..self.bufnr) end,

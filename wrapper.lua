@@ -127,6 +127,10 @@ function Wrapper:is_open()
     return winnr ~= -1
 end
 
+function Wrapper:get_winnr()
+    return vim.fn.bufwinnr(self.bufnr)
+end
+
 function Wrapper:toggle(args)
     if self.created == false then
         self:create()
