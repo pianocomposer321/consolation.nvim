@@ -20,9 +20,47 @@ Setup the `Wrapper` using the provided configuration options
 ##### Arguments
 
 - `create` (function): The function used to create the terminal
+<details>
+<summary>Default</summary>
+```lua
+function() vim.cmd("vnew | term") end
+```
+</details>
 - `open` (function): The function used to open the terminal.
+<details>
+<summary>Default</summary>
+```lua
+function(self)
+    local winnr = self.get_winnr()
+    if winnr == -1 then
+        vim.cmd("vnew")
+        vim.cmd("b"..self.bufnr)
+    else
+        vim.cmd(winnr.."wincmd w")
+    end
+end
+```
+
+</details>
 - `close` (function): The function used to close the terminal.
+<details>
+<summary>Default</summary>
+```lua
+function(self)
+    local winnr = self.get_winnr()
+    vim.cmd(winnr.."wincmd c")
+end
+```
+
+</details>
 - `kill` (function): The function used to kill the terminal.
+<details>
+<summary>Default</summary>
+```lua
+function (self) vim.cmd("bd! "..self.bufnr) end
+```
+
+</details>
 
 Except for `create`, all of these functions accept one argument, which is a reference to the `Wrapper` object iself. This way all of its variables like `bufnr`, `winid`, etc. are avaliable to the functions.
 
