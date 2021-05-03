@@ -21,7 +21,6 @@ function Wrapper:setup(opts)
     self.config = U.create_config(opts)
 end
 
--- local function get_new_terminal_bufnr(before_wininfo, after_wininfo)
 function Wrapper.get_new_terminal_bufnr(before_wininfo, after_wininfo)
     local before_terminals = vim.tbl_filter(function(window) return window.terminal == 1 end, before_wininfo)
     local after_terminals = vim.tbl_filter(function(window) return window.terminal == 1 end, after_wininfo)
@@ -34,7 +33,6 @@ function Wrapper.get_new_terminal_bufnr(before_wininfo, after_wininfo)
     return new_bufnrs[1]
 end
 
--- local function get_new_terminal_channel(before_bufinfo, after_bufinfo)
 function Wrapper.get_new_terminal_channel(before_bufinfo, after_bufinfo)
     local before_variables = vim.tbl_map(function(buffer) return buffer.variables end, before_bufinfo)
     local after_variables = vim.tbl_map(function(buffer) return buffer.variables end, after_bufinfo)
@@ -47,7 +45,6 @@ function Wrapper.get_new_terminal_channel(before_bufinfo, after_bufinfo)
     return new_channels[1]
 end
 
--- local function get_new_terminal_winid(before_wininfo, after_wininfo)
 function Wrapper.get_new_terminal_winid(before_wininfo, after_wininfo)
     local before_terminals = vim.tbl_filter(function(window) return window.terminal == 1 end, before_wininfo)
     local after_terminals = vim.tbl_filter(function(window) return window.terminal == 1 end, after_wininfo)
@@ -86,12 +83,13 @@ function Wrapper:create()
 end
 
 function Wrapper:open(args)
-    local cmd
-    local create = true
-    if args then
-        create = args.create
-        cmd = args.cmd
+    if args == nil then args = {} end
+
+    local create = args.create
+    if create == nil then
+        create = true
     end
+    local cmd = args.cmd
 
     if vim.fn.bufexists(self.bufnr) == 0 then
         if create == true then
@@ -105,7 +103,7 @@ function Wrapper:open(args)
     end
 
     if cmd then
-        self:send_command {cmd = cmd}
+        self:send_command(args)
     end
 end
 
@@ -135,9 +133,11 @@ function Wrapper:toggle(args)
         return
     end
 
-    local create = true
-    if args then
-        create = args.create
+    if args == nil then args = {} end
+
+    local create = args.create
+    if create == nil then
+        create = true
     end
 
     if self:is_open() then
@@ -148,14 +148,16 @@ function Wrapper:toggle(args)
 end
 
 function Wrapper:send_command(args)
+    if args == nil then args = {} end
+
     local cmd = assert(args.cmd, "No command to send!")
     local open = args.open
     local create = args.create
 
-    if args.open == nil then
+    if open == nil then
         open = true
     end
-    if args.create == nil then
+    if create == nil then
         create = true
     end
 
