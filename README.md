@@ -2,6 +2,10 @@
 
 A general-perpose terminal wrapper and management plugin for neovim, written in lua
 
+## Demo
+
+[![asciicast](https://asciinema.org/a/88T1XmVG6Xak4580OHsrBV7kW.svg)](https://asciinema.org/a/88T1XmVG6Xak4580OHsrBV7kW)
+
 ## About
 
 I know what you're thinking: "There are already dozens of terminal wrapper plugins for vim/neovim out there! Why yet another?" And you'd be partially right - the default configuration of consolation.nvim is basically the same as [all](https://github.com/akinsho/nvim-toggleterm.lua) [the](https://github.com/oberblastmeister/termwrapper.nvim) [other](https://github.com/s1n7ax/nvim-terminal) [terminal](https://github.com/jlesquembre/nterm.nvim) [wrapper](https://github.com/itmecho/bufterm.nvim) [plugins](https://github.com/anott03/termight.nvim) [out](https://github.com/haorenW1025/term-nvim) [there](https://github.com/mortepau/terminal.nvim). But, as is the case with many vim and neovim plugins, consolation.nvim is much more than its default configuration.
