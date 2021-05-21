@@ -2,9 +2,11 @@
 
 A general-perpose terminal wrapper and management plugin for neovim, written in lua
 
+![screenshot](./screenshot.png.png)
+
 ## Demo
 
-[![asciicast](https://asciinema.org/a/88T1XmVG6Xak4580OHsrBV7kW.svg)](https://asciinema.org/a/88T1XmVG6Xak4580OHsrBV7kW)
+[https://asciinema.org/a/88T1XmVG6Xak4580OHsrBV7kW](https://asciinema.org/a/88T1XmVG6Xak4580OHsrBV7kW)
 
 ## About
 
