@@ -2,7 +2,7 @@
 
 A general-perpose terminal wrapper and management plugin for neovim, written in lua
 
-![screenshot](./screenshot.png.png)
+![screenshot](./screenshot.png)
 
 ## Demo
 
