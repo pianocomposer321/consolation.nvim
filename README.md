@@ -14,6 +14,13 @@ I know what you're thinking: "There are already dozens of terminal wrapper plugi
 
 The main reason that [the author](https://github.com/pianocomposer321) created this plugin is because while there is no shortage of either terminal management plugins (e.g. [Neoterm](https://github.com/kassio/neoterm)) or floating terminal plugins (e.g. [Floaterm](https://github.com/voldikss/vim-floaterm)), trying to get either the terminal management plugin to work with floating windows or the floating terminal plugin to accept input programmatically is a major pain. The idea of this plugin is to take absolutely *any* asthetically enhancing terminal plugin and make it easy to use programmatically as well. What this means practically speaking is that you can have a floating terminal (like with [Floaterm](https://github.com/voldikss/vim-floaterm) or [FTerm](https://github.com/numToStr/FTerm.nvim)) that can be controlled with lua functions similarly to [Neoterm](https://github.com/kassio/neoterm).
 
+## Installation
+Packer.nvim:
+`use 'pianocomposer321/consolation.nvim'`
+vim-plug:
+`Plug 'pianocomposer321/consolation.nvim'`
+etc.
+
 ## Usage
 The way you interact with Consolation is through its `Wrapper` object.
 
